@@ -190,4 +190,9 @@ if(WIN32)
 	)
 endif()
 
+# Just for defaulting to X11, this and related code should be removed when QT fixes their Wayland implementation.
+if (X11_API)
+  target_compile_definitions(pcsx2-qt PRIVATE X11_API)
+endif()
+
 setup_main_executable(pcsx2-qt)
