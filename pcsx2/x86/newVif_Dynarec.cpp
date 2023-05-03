@@ -206,6 +206,7 @@ static void ShiftDisplacementWindow(xAddressVoid& addr, const xRegisterLong& mod
 
 void VifUnpackSSE_Dynarec::ModUnpack(int upknum, bool PostOp)
 {
+	upknum = 11;
 
 	switch (upknum)
 	{
