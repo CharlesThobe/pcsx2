@@ -43,7 +43,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QSlider" name="pointerYSpeedSlider">
+      <widget class="NoScrollQSlider" name="pointerYSpeedSlider">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
          <horstretch>0</horstretch>
@@ -110,7 +110,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QSlider" name="pointerXSpeedSlider">
+      <widget class="NoScrollQSlider" name="pointerXSpeedSlider">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
          <horstretch>0</horstretch>
@@ -229,7 +229,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QSlider" name="pointerInertiaSlider">
+      <widget class="NoScrollQSlider" name="pointerInertiaSlider">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
          <horstretch>0</horstretch>
@@ -296,7 +296,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QSlider" name="pointerXDeadZoneSlider">
+      <widget class="NoScrollQSlider" name="pointerXDeadZoneSlider">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
          <horstretch>0</horstretch>
@@ -363,7 +363,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QSlider" name="pointerYDeadZoneSlider">
+      <widget class="NoScrollQSlider" name="pointerYDeadZoneSlider">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
          <horstretch>0</horstretch>
@@ -410,6 +410,13 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>NoScrollQSlider</class>
+   <extends>QSlider</extends>
+   <header>NoScrollQSlider.h</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="../resources/resources.qrc"/>
  </resources>

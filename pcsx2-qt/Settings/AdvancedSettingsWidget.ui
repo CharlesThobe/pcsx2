@@ -74,7 +74,7 @@
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="QComboBox" name="eeRoundingMode">
+           <widget class="NoScrollQComboBox" name="eeRoundingMode">
             <item>
              <property name="text">
               <string>Nearest</string>
@@ -105,7 +105,7 @@
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="QComboBox" name="eeClampMode">
+           <widget class="NoScrollQComboBox" name="eeClampMode">
             <item>
              <property name="text">
               <string comment="ClampMode">None</string>
@@ -191,7 +191,7 @@
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="QComboBox" name="vu0RoundingMode">
+           <widget class="NoScrollQComboBox" name="vu0RoundingMode">
             <item>
              <property name="text">
               <string>Nearest</string>
@@ -240,7 +240,7 @@
            </layout>
           </item>
           <item row="1" column="1">
-           <widget class="QComboBox" name="vu0ClampMode">
+           <widget class="NoScrollQComboBox" name="vu0ClampMode">
             <item>
              <property name="text">
               <string>None</string>
@@ -285,7 +285,7 @@
            </widget>
           </item>
           <item row="2" column="1">
-           <widget class="QComboBox" name="vu1RoundingMode">
+           <widget class="NoScrollQComboBox" name="vu1RoundingMode">
             <item>
              <property name="text">
               <string>Nearest</string>
@@ -309,7 +309,7 @@
            </widget>
           </item>
           <item row="3" column="1">
-           <widget class="QComboBox" name="vu1ClampMode">
+           <widget class="NoScrollQComboBox" name="vu1ClampMode">
             <item>
              <property name="text">
               <string>None</string>
@@ -381,7 +381,7 @@
          </property>
          <layout class="QGridLayout" name="gridLayout_5">
           <item row="1" column="1">
-           <widget class="QDoubleSpinBox" name="palFrameRate">
+           <widget class="NoScrollQDoubleSpinBox" name="palFrameRate">
             <property name="suffix">
              <string extracomment="hz=Hertz, as in the measuring unit. Shown after the corresponding number. Those languages who'd need to remove the space or do something in between should do so."> hz</string>
             </property>
@@ -391,7 +391,7 @@
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="QDoubleSpinBox" name="ntscFrameRate">
+           <widget class="NoScrollQDoubleSpinBox" name="ntscFrameRate">
             <property name="suffix">
              <string> hz</string>
             </property>
@@ -475,6 +475,18 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>NoScrollQComboBox</class>
+   <extends>QComboBox</extends>
+   <header>NoScrollQComboBox.h</header>
+  </customwidget>
+  <customwidget>
+   <class>NoScrollQDoubleSpinBox</class>
+   <extends>QDoubleSpinBox</extends>
+   <header>NoScrollQDoubleSpinBox.h</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="../resources/resources.qrc"/>
  </resources>

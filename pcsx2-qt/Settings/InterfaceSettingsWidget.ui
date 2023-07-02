@@ -156,7 +156,7 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QComboBox" name="language"/>
+       <widget class="NoScrollQComboBox" name="language"/>
       </item>
       <item row="1" column="0">
        <widget class="QLabel" name="label_2">
@@ -166,7 +166,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QComboBox" name="theme"/>
+       <widget class="NoScrollQComboBox" name="theme"/>
       </item>
      </layout>
     </widget>
@@ -185,7 +185,7 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QComboBox" name="autoUpdateTag"/>
+       <widget class="NoScrollQComboBox" name="autoUpdateTag"/>
       </item>
       <item row="1" column="0">
        <widget class="QLabel" name="label_5">
@@ -250,6 +250,13 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>NoScrollQComboBox</class>
+   <extends>QComboBox</extends>
+   <header>NoScrollQComboBox.h</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="../resources/resources.qrc"/>
  </resources>

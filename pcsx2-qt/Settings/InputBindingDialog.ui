@@ -53,7 +53,7 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QSlider" name="sensitivity">
+       <widget class="NoScrollQSlider" name="sensitivity">
         <property name="minimum">
          <number>1</number>
         </property>
@@ -67,7 +67,7 @@
          <enum>Qt::Horizontal</enum>
         </property>
         <property name="tickPosition">
-         <enum>QSlider::TicksBelow</enum>
+         <enum>NoScrollQSlider::TicksBelow</enum>
         </property>
        </widget>
       </item>
@@ -86,7 +86,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QSlider" name="deadzone">
+       <widget class="NoScrollQSlider" name="deadzone">
         <property name="minimum">
          <number>0</number>
         </property>
@@ -100,7 +100,7 @@
          <enum>Qt::Horizontal</enum>
         </property>
         <property name="tickPosition">
-         <enum>QSlider::TicksBelow</enum>
+         <enum>NoScrollQSlider::TicksBelow</enum>
         </property>
         <property name="tickInterval">
          <number>5</number>
@@ -158,6 +158,13 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>NoScrollQSlider</class>
+   <extends>QSlider</extends>
+   <header>NoScrollQSlider.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

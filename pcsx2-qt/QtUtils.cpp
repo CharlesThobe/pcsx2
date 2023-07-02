@@ -24,7 +24,7 @@
 #include <QtGui/QDesktopServices>
 #include <QtGui/QKeyEvent>
 #include <QtGui/QScreen>
-#include <QtWidgets/QComboBox>
+#include "CustomQtWidgets/NoScrollQComboBox.h"
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QInputDialog>

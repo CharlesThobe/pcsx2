@@ -58,8 +58,8 @@ InputBindingDialog::InputBindingDialog(SettingsInterface* sif, InputBindingInfo:
 		ControllerSettingWidgetBinder::BindWidgetToInputProfileNormalized(
 			sif, m_ui.deadzone, m_section_name, fmt::format("{}Deadzone", m_key_name), 100.0f, 0.0f);
 
-		connect(m_ui.sensitivity, &QSlider::valueChanged, this, &InputBindingDialog::onSensitivityChanged);
-		connect(m_ui.deadzone, &QSlider::valueChanged, this, &InputBindingDialog::onDeadzoneChanged);
+		connect(m_ui.sensitivity, &NoScrollQSlider::valueChanged, this, &InputBindingDialog::onSensitivityChanged);
+		connect(m_ui.deadzone, &NoScrollQSlider::valueChanged, this, &InputBindingDialog::onDeadzoneChanged);
 
 		onSensitivityChanged(m_ui.sensitivity->value());
 		onDeadzoneChanged(m_ui.deadzone->value());

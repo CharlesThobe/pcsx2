@@ -93,11 +93,11 @@ InterfaceSettingsWidget::InterfaceSettingsWidget(SettingsDialog* dialog, QWidget
 
 	SettingWidgetBinder::BindWidgetToEnumSetting(sif, m_ui.theme, "UI", "Theme", THEME_NAMES, THEME_VALUES,
 		QtHost::GetDefaultThemeName(), "InterfaceSettingsWidget");
-	connect(m_ui.theme, QOverload<int>::of(&QComboBox::currentIndexChanged), [this]() { emit themeChanged(); });
+	connect(m_ui.theme, QOverload<int>::of(&NoScrollQComboBox::currentIndexChanged), [this]() { emit themeChanged(); });
 
 	populateLanguages();
 	SettingWidgetBinder::BindWidgetToStringSetting(sif, m_ui.language, "UI", "Language", QtHost::GetDefaultLanguage());
-	connect(m_ui.language, QOverload<int>::of(&QComboBox::currentIndexChanged), [this]() { emit languageChanged(); });
+	connect(m_ui.language, QOverload<int>::of(&NoScrollQComboBox::currentIndexChanged), [this]() { emit languageChanged(); });
 
 	// Per-game settings is special, we don't want to bind it if we're editing per-game settings.
 	m_ui.perGameSettings->setEnabled(!dialog->isPerGameSettings());

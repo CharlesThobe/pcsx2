@@ -42,7 +42,7 @@
       <item row="0" column="1">
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
-         <widget class="QSlider" name="sequenceLength">
+         <widget class="NoScrollQSlider" name="sequenceLength">
           <property name="minimum">
            <number>20</number>
           </property>
@@ -56,7 +56,7 @@
            <enum>Qt::Horizontal</enum>
           </property>
           <property name="tickPosition">
-           <enum>QSlider::TicksBelow</enum>
+           <enum>NoScrollQSlider::TicksBelow</enum>
           </property>
           <property name="tickInterval">
            <number>10</number>
@@ -82,7 +82,7 @@
       <item row="1" column="1">
        <layout class="QHBoxLayout" name="horizontalLayout_3">
         <item>
-         <widget class="QSlider" name="seekWindowSize">
+         <widget class="NoScrollQSlider" name="seekWindowSize">
           <property name="minimum">
            <number>10</number>
           </property>
@@ -96,7 +96,7 @@
            <enum>Qt::Horizontal</enum>
           </property>
           <property name="tickPosition">
-           <enum>QSlider::TicksBelow</enum>
+           <enum>NoScrollQSlider::TicksBelow</enum>
           </property>
           <property name="tickInterval">
            <number>2</number>
@@ -122,7 +122,7 @@
       <item row="2" column="1">
        <layout class="QHBoxLayout" name="horizontalLayout_4">
         <item>
-         <widget class="QSlider" name="overlap">
+         <widget class="NoScrollQSlider" name="overlap">
           <property name="minimum">
            <number>5</number>
           </property>
@@ -136,7 +136,7 @@
            <enum>Qt::Horizontal</enum>
           </property>
           <property name="tickPosition">
-           <enum>QSlider::TicksBelow</enum>
+           <enum>NoScrollQSlider::TicksBelow</enum>
           </property>
           <property name="tickInterval">
            <number>1</number>
@@ -194,7 +194,7 @@
        </property>
        <layout class="QGridLayout" name="gridLayout">
         <item row="0" column="0">
-         <widget class="QSlider" name="volume">
+         <widget class="NoScrollQSlider" name="volume">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
             <horstretch>0</horstretch>
@@ -217,7 +217,7 @@
            <enum>Qt::Vertical</enum>
           </property>
           <property name="tickPosition">
-           <enum>QSlider::TicksBothSides</enum>
+           <enum>NoScrollQSlider::TicksBothSides</enum>
           </property>
           <property name="tickInterval">
            <number>10</number>
@@ -285,7 +285,7 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QComboBox" name="syncMode">
+       <widget class="NoScrollQComboBox" name="syncMode">
         <item>
          <property name="text">
           <string>TimeStretch (Recommended)</string>
@@ -311,7 +311,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QComboBox" name="expansionMode">
+       <widget class="NoScrollQComboBox" name="expansionMode">
         <item>
          <property name="text">
           <string>Stereo (None, Default)</string>
@@ -342,7 +342,7 @@
        </widget>
       </item>
       <item row="3" column="1">
-       <widget class="QComboBox" name="dplLevel">
+       <widget class="NoScrollQComboBox" name="dplLevel">
         <item>
          <property name="text">
           <string>None (Default)</string>
@@ -370,7 +370,7 @@
       <item row="4" column="1">
        <layout class="QHBoxLayout" name="horizontalLayout_6">
         <item>
-         <widget class="QSlider" name="targetLatency">
+         <widget class="NoScrollQSlider" name="targetLatency">
           <property name="minimum">
            <number>15</number>
           </property>
@@ -384,7 +384,7 @@
            <enum>Qt::Horizontal</enum>
           </property>
           <property name="tickPosition">
-           <enum>QSlider::TicksBelow</enum>
+           <enum>NoScrollQSlider::TicksBelow</enum>
           </property>
           <property name="tickInterval">
            <number>200</number>
@@ -417,7 +417,7 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QComboBox" name="outputModule"/>
+       <widget class="NoScrollQComboBox" name="outputModule"/>
       </item>
       <item row="3" column="0">
        <widget class="QLabel" name="label_5">
@@ -429,7 +429,7 @@
       <item row="3" column="1">
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
-         <widget class="QSlider" name="outputLatency">
+         <widget class="NoScrollQSlider" name="outputLatency">
           <property name="minimum">
            <number>10</number>
           </property>
@@ -443,7 +443,7 @@
            <enum>Qt::Horizontal</enum>
           </property>
           <property name="tickPosition">
-           <enum>QSlider::TicksBelow</enum>
+           <enum>NoScrollQSlider::TicksBelow</enum>
           </property>
           <property name="tickInterval">
            <number>200</number>
@@ -474,7 +474,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QComboBox" name="backend"/>
+       <widget class="NoScrollQComboBox" name="backend"/>
       </item>
       <item row="4" column="1">
        <widget class="QLabel" name="latencySummary">
@@ -494,13 +494,25 @@
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="QComboBox" name="outputDevice"/>
+       <widget class="NoScrollQComboBox" name="outputDevice"/>
       </item>
      </layout>
     </widget>
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>NoScrollQComboBox</class>
+   <extends>QComboBox</extends>
+   <header>NoScrollQComboBox.h</header>
+  </customwidget>
+  <customwidget>
+   <class>NoScrollQSlider</class>
+   <extends>QSlider</extends>
+   <header>NoScrollQSlider.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

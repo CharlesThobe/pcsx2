@@ -33,7 +33,7 @@
      </property>
      <layout class="QGridLayout" name="gridLayout">
       <item row="2" column="1" colspan="2">
-       <widget class="QComboBox" name="ethDev"/>
+       <widget class="NoScrollQComboBox" name="ethDev"/>
       </item>
       <item row="2" column="0">
        <widget class="QLabel" name="ethDevLabel">
@@ -63,7 +63,7 @@
          </attribute>
          <layout class="QGridLayout" name="gridLayout_3">
           <item row="4" column="2">
-           <widget class="QComboBox" name="ethDNS1Mode"/>
+           <widget class="NoScrollQComboBox" name="ethDNS1Mode"/>
           </item>
           <item row="0" column="1">
            <widget class="QCheckBox" name="ethInterceptDHCP">
@@ -167,7 +167,7 @@
            </widget>
           </item>
           <item row="5" column="2">
-           <widget class="QComboBox" name="ethDNS2Mode"/>
+           <widget class="NoScrollQComboBox" name="ethDNS2Mode"/>
           </item>
          </layout>
         </widget>
@@ -256,7 +256,7 @@
        </widget>
       </item>
       <item row="1" column="1" colspan="2">
-       <widget class="QComboBox" name="ethDevType"/>
+       <widget class="NoScrollQComboBox" name="ethDevType"/>
       </item>
       <item row="0" column="0" colspan="3">
        <widget class="QCheckBox" name="ethEnabled">
@@ -294,7 +294,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QSlider" name="hddSizeSlider">
+         <widget class="NoScrollQSlider" name="hddSizeSlider">
           <property name="minimum">
            <number>40</number>
           </property>
@@ -308,7 +308,7 @@
            <enum>Qt::Horizontal</enum>
           </property>
           <property name="tickPosition">
-           <enum>QSlider::TicksBelow</enum>
+           <enum>NoScrollQSlider::TicksBelow</enum>
           </property>
           <property name="tickInterval">
            <number>5</number>
@@ -325,7 +325,7 @@
        </layout>
       </item>
       <item row="2" column="2">
-       <widget class="QSpinBox" name="hddSizeSpinBox">
+       <widget class="NoScrollQSpinBox" name="hddSizeSpinBox">
         <property name="minimum">
          <number>40</number>
         </property>
@@ -386,6 +386,23 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>NoScrollQComboBox</class>
+   <extends>QComboBox</extends>
+   <header>NoScrollQComboBox.h</header>
+  </customwidget>
+  <customwidget>
+   <class>NoScrollQSlider</class>
+   <extends>QSlider</extends>
+   <header>NoScrollQSlider.h</header>
+  </customwidget>
+  <customwidget>
+   <class>NoScrollQSpinBox</class>
+   <extends>QSpinBox</extends>
+   <header>NoScrollQSpinBox.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

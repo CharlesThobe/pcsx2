@@ -26,11 +26,11 @@
 #include <QtCore/QtCore>
 #include <QtGui/QAction>
 #include <QtWidgets/QCheckBox>
-#include <QtWidgets/QComboBox>
-#include <QtWidgets/QDoubleSpinBox>
+#include "CustomQtWidgets/NoScrollQComboBox.h"
+#include "CustomQtWidgets/NoScrollQDoubleSpinBox.h"
 #include <QtWidgets/QLineEdit>
-#include <QtWidgets/QSlider>
-#include <QtWidgets/QSpinBox>
+#include "CustomQtWidgets/NoScrollQSlider.h"
+#include "CustomQtWidgets/NoScrollQSpinBox.h"
 
 /// This nastyness is required because input profiles aren't overlaid settings like the rest of them, it's
 /// input profile *or* global, not both.

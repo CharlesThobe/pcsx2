@@ -51,7 +51,7 @@ MemoryCardConvertDialog::MemoryCardConvertDialog(QWidget* parent, QString select
 	m_ui.progressBar->setRange(0, 100);
 	m_ui.progressBar->setValue(0);
 
-	connect(m_ui.conversionTypeSelect, &QComboBox::currentIndexChanged, this, [this]() 
+	connect(m_ui.conversionTypeSelect, &NoScrollQComboBox::currentIndexChanged, this, [this]() 
 		{
 			switch (m_srcCardInfo.type)
 			{

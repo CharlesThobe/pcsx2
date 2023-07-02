@@ -90,7 +90,7 @@
     </widget>
    </item>
    <item row="4" column="1">
-    <widget class="QComboBox" name="type">
+    <widget class="NoScrollQComboBox" name="type">
      <property name="enabled">
       <bool>false</bool>
      </property>
@@ -140,7 +140,7 @@
     </widget>
    </item>
    <item row="5" column="1">
-    <widget class="QComboBox" name="region">
+    <widget class="NoScrollQComboBox" name="region">
      <property name="enabled">
       <bool>false</bool>
      </property>
@@ -313,7 +313,7 @@
     </widget>
    </item>
    <item row="6" column="1">
-    <widget class="QComboBox" name="compatibility">
+    <widget class="NoScrollQComboBox" name="compatibility">
      <property name="enabled">
       <bool>false</bool>
      </property>
@@ -371,7 +371,7 @@
     </widget>
    </item>
    <item row="7" column="1">
-    <widget class="QComboBox" name="inputProfile">
+    <widget class="NoScrollQComboBox" name="inputProfile">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
        <horstretch>0</horstretch>
@@ -428,6 +428,13 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>NoScrollQComboBox</class>
+   <extends>QComboBox</extends>
+   <header>NoScrollQComboBox.h</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="../resources/resources.qrc"/>
  </resources>

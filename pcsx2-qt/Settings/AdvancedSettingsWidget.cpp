@@ -55,9 +55,9 @@ AdvancedSettingsWidget::AdvancedSettingsWidget(SettingsDialog* dialog, QWidget* 
 	m_ui.eeClampMode->setCurrentIndex(getClampingModeIndex(-1));
 	m_ui.vu0ClampMode->setCurrentIndex(getClampingModeIndex(0));
 	m_ui.vu1ClampMode->setCurrentIndex(getClampingModeIndex(1));
-	connect(m_ui.eeClampMode, QOverload<int>::of(&QComboBox::currentIndexChanged), [this](int index) { setClampingMode(-1, index); });
-	connect(m_ui.vu0ClampMode, QOverload<int>::of(&QComboBox::currentIndexChanged), [this](int index) { setClampingMode(0, index); });
-	connect(m_ui.vu1ClampMode, QOverload<int>::of(&QComboBox::currentIndexChanged), [this](int index) { setClampingMode(1, index); });
+	connect(m_ui.eeClampMode, QOverload<int>::of(&NoScrollQComboBox::currentIndexChanged), [this](int index) { setClampingMode(-1, index); });
+	connect(m_ui.vu0ClampMode, QOverload<int>::of(&NoScrollQComboBox::currentIndexChanged), [this](int index) { setClampingMode(0, index); });
+	connect(m_ui.vu1ClampMode, QOverload<int>::of(&NoScrollQComboBox::currentIndexChanged), [this](int index) { setClampingMode(1, index); });
 
 	SettingWidgetBinder::BindWidgetToBoolSetting(sif, m_ui.iopRecompiler, "EmuCore/CPU/Recompiler", "EnableIOP", true);
 

@@ -33,8 +33,8 @@ private Q_SLOTS:
 	void onOptimalFramePacingChanged();
 
 private:
-	void initializeSpeedCombo(QComboBox* cb, const char* section, const char* key, float default_value);
-	void handleSpeedComboChange(QComboBox* cb, const char* section, const char* key);
+	void initializeSpeedCombo(NoScrollQComboBox* cb, const char* section, const char* key, float default_value);
+	void handleSpeedComboChange(NoScrollQComboBox* cb, const char* section, const char* key);
 	void updateOptimalFramePacing();
 
 	SettingsDialog* m_dialog;

@@ -92,7 +92,7 @@
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="QSpinBox" name="startDraw">
+           <widget class="NoScrollQSpinBox" name="startDraw">
             <property name="maximum">
              <number>99999</number>
             </property>
@@ -106,7 +106,7 @@
            </widget>
           </item>
           <item row="2" column="1">
-           <widget class="QSpinBox" name="dumpCount">
+           <widget class="NoScrollQSpinBox" name="dumpCount">
             <property name="minimum">
              <number>1</number>
             </property>
@@ -193,6 +193,13 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>NoScrollQSpinBox</class>
+   <extends>QSpinBox</extends>
+   <header>NoScrollQSpinBox.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

@@ -97,7 +97,7 @@ EmulationSettingsWidget::EmulationSettingsWidget(SettingsDialog* dialog, QWidget
 	m_ui.eeCycleRate->setCurrentIndex(cycle_rate.has_value() ? (std::clamp(cycle_rate.value(), MINIMUM_EE_CYCLE_RATE, MAXIMUM_EE_CYCLE_RATE) +
 																   (0 - MINIMUM_EE_CYCLE_RATE) + static_cast<int>(m_dialog->isPerGameSettings())) :
                                                                0);
-	connect(m_ui.eeCycleRate, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [this](int index) {
+	connect(m_ui.eeCycleRate, QOverload<int>::of(&NoScrollQComboBox::currentIndexChanged), this, [this](int index) {
 		std::optional<int> value;
 		if (!m_dialog->isPerGameSettings() || index > 0)
 			value = MINIMUM_EE_CYCLE_RATE + index - static_cast<int>(m_dialog->isPerGameSettings());
@@ -160,7 +160,7 @@ EmulationSettingsWidget::EmulationSettingsWidget(SettingsDialog* dialog, QWidget
 
 EmulationSettingsWidget::~EmulationSettingsWidget() = default;
 
-void EmulationSettingsWidget::initializeSpeedCombo(QComboBox* cb, const char* section, const char* key, float default_value)
+void EmulationSettingsWidget::initializeSpeedCombo(NoScrollQComboBox* cb, const char* section, const char* key, float default_value)
 {
 	float value = Host::GetBaseFloatSettingValue(section, key, default_value);
 	if (m_dialog->isPerGameSettings())
@@ -204,11 +204,11 @@ void EmulationSettingsWidget::initializeSpeedCombo(QComboBox* cb, const char* se
 		cb->setCurrentIndex(custom_index);
 	}
 
-	connect(cb, QOverload<int>::of(&QComboBox::currentIndexChanged), this,
+	connect(cb, QOverload<int>::of(&NoScrollQComboBox::currentIndexChanged), this,
 		[this, cb, section, key](int index) { handleSpeedComboChange(cb, section, key); });
 }
 
-void EmulationSettingsWidget::handleSpeedComboChange(QComboBox* cb, const char* section, const char* key)
+void EmulationSettingsWidget::handleSpeedComboChange(NoScrollQComboBox* cb, const char* section, const char* key)
 {
 	const int custom_index = cb->count() - 1;
 	const int current_index = cb->currentIndex();

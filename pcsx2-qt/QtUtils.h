@@ -28,7 +28,7 @@
 class ByteStream;
 
 class QAction;
-class QComboBox;
+class NoScrollQComboBox;
 class QFrame;
 class QKeyEvent;
 class QTableView;

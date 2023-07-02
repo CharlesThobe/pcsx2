@@ -51,8 +51,8 @@ AudioSettingsWidget::AudioSettingsWidget(SettingsDialog* dialog, QWidget* parent
 	SettingWidgetBinder::BindWidgetToIntSetting(sif, m_ui.syncMode, "SPU2/Output", "SynchMode", DEFAULT_SYNCHRONIZATION_MODE);
 	SettingWidgetBinder::BindWidgetToIntSetting(sif, m_ui.expansionMode, "SPU2/Output", "SpeakerConfiguration", DEFAULT_EXPANSION_MODE);
 	SettingWidgetBinder::BindWidgetToIntSetting(sif, m_ui.dplLevel, "SPU2/Output", "DplDecodingLevel", DEFAULT_DPL_DECODING_LEVEL);
-	connect(m_ui.syncMode, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &AudioSettingsWidget::updateTargetLatencyRange);
-	connect(m_ui.expansionMode, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &AudioSettingsWidget::expansionModeChanged);
+	connect(m_ui.syncMode, QOverload<int>::of(&NoScrollQComboBox::currentIndexChanged), this, &AudioSettingsWidget::updateTargetLatencyRange);
+	connect(m_ui.expansionMode, QOverload<int>::of(&NoScrollQComboBox::currentIndexChanged), this, &AudioSettingsWidget::expansionModeChanged);
 	updateTargetLatencyRange();
 	expansionModeChanged();
 
@@ -63,20 +63,20 @@ AudioSettingsWidget::AudioSettingsWidget(SettingsDialog* dialog, QWidget* parent
 	SettingWidgetBinder::BindSliderToIntSetting(
 		sif, m_ui.outputLatency, m_ui.outputLatencyLabel, tr(" ms"), "SPU2/Output", "OutputLatency", DEFAULT_OUTPUT_LATENCY);
 	SettingWidgetBinder::BindWidgetToBoolSetting(sif, m_ui.outputLatencyMinimal, "SPU2/Output", "OutputLatencyMinimal", false);
-	connect(m_ui.outputModule, &QComboBox::currentIndexChanged, this, &AudioSettingsWidget::outputModuleChanged);
-	connect(m_ui.backend, &QComboBox::currentIndexChanged, this, &AudioSettingsWidget::outputBackendChanged);
-	connect(m_ui.targetLatency, &QSlider::valueChanged, this, &AudioSettingsWidget::updateLatencyLabels);
-	connect(m_ui.outputLatency, &QSlider::valueChanged, this, &AudioSettingsWidget::updateLatencyLabels);
+	connect(m_ui.outputModule, &NoScrollQComboBox::currentIndexChanged, this, &AudioSettingsWidget::outputModuleChanged);
+	connect(m_ui.backend, &NoScrollQComboBox::currentIndexChanged, this, &AudioSettingsWidget::outputBackendChanged);
+	connect(m_ui.targetLatency, &NoScrollQSlider::valueChanged, this, &AudioSettingsWidget::updateLatencyLabels);
+	connect(m_ui.outputLatency, &NoScrollQSlider::valueChanged, this, &AudioSettingsWidget::updateLatencyLabels);
 	connect(m_ui.outputLatencyMinimal, &QCheckBox::stateChanged, this, &AudioSettingsWidget::updateLatencyLabels);
 	connect(m_ui.outputLatencyMinimal, &QCheckBox::stateChanged, this, &AudioSettingsWidget::onMinimalOutputLatencyStateChanged);
 	outputModuleChanged();
 
 	m_ui.volume->setValue(m_dialog->getEffectiveIntValue("SPU2/Mixing", "FinalVolume", DEFAULT_VOLUME));
-	connect(m_ui.volume, &QSlider::valueChanged, this, &AudioSettingsWidget::volumeChanged);
+	connect(m_ui.volume, &NoScrollQSlider::valueChanged, this, &AudioSettingsWidget::volumeChanged);
 	updateVolumeLabel();
 	if (dialog->isPerGameSettings())
 	{
-		connect(m_ui.volume, &QSlider::customContextMenuRequested, this, &AudioSettingsWidget::volumeContextMenuRequested);
+		connect(m_ui.volume, &NoScrollQSlider::customContextMenuRequested, this, &AudioSettingsWidget::volumeContextMenuRequested);
 		m_ui.volume->setContextMenuPolicy(Qt::CustomContextMenu);
 		if (sif->ContainsValue("SPU2/Mixing", "FinalVolume"))
 		{

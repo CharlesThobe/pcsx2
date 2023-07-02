@@ -52,7 +52,7 @@ GameSummaryWidget::GameSummaryWidget(const GameList::Entry* entry, SettingsDialo
 	populateDetails(entry);
 	populateDiscPath(entry);
 
-	connect(m_ui.inputProfile, &QComboBox::currentIndexChanged, this, &GameSummaryWidget::onInputProfileChanged);
+	connect(m_ui.inputProfile, &NoScrollQComboBox::currentIndexChanged, this, &GameSummaryWidget::onInputProfileChanged);
 }
 
 GameSummaryWidget::~GameSummaryWidget() = default;

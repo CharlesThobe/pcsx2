@@ -122,7 +122,7 @@ GraphicsSettingsWidget::GraphicsSettingsWidget(SettingsDialog* dialog, QWidget* 
 	SettingWidgetBinder::BindWidgetToIntSetting(sif, m_ui.cropBottom, "EmuCore/GS", "CropBottom", 0);
 
 	connect(
-		m_ui.fullscreenModes, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &GraphicsSettingsWidget::onFullscreenModeChanged);
+		m_ui.fullscreenModes, QOverload<int>::of(&NoScrollQComboBox::currentIndexChanged), this, &GraphicsSettingsWidget::onFullscreenModeChanged);
 
 	//////////////////////////////////////////////////////////////////////////
 	// OSD Settings
@@ -174,7 +174,7 @@ GraphicsSettingsWidget::GraphicsSettingsWidget(SettingsDialog* dialog, QWidget* 
 		sif, m_ui.blending, "EmuCore/GS", "accurate_blending_unit", static_cast<int>(AccBlendLevel::Basic));
 	SettingWidgetBinder::BindWidgetToIntSetting(
 		sif, m_ui.texturePreloading, "EmuCore/GS", "texture_preloading", static_cast<int>(TexturePreloadingLevel::Off));
-	connect(m_ui.trilinearFiltering, QOverload<int>::of(&QComboBox::currentIndexChanged), this,
+	connect(m_ui.trilinearFiltering, QOverload<int>::of(&NoScrollQComboBox::currentIndexChanged), this,
 		&GraphicsSettingsWidget::onTrilinearFilteringChanged);
 	onTrilinearFilteringChanged();
 
@@ -203,10 +203,10 @@ GraphicsSettingsWidget::GraphicsSettingsWidget(SettingsDialog* dialog, QWidget* 
 		sif, m_ui.targetPartialInvalidation, "EmuCore/GS", "UserHacks_TargetPartialInvalidation", false);
 	SettingWidgetBinder::BindWidgetToBoolSetting(sif, m_ui.estimateTextureRegion, "EmuCore/GS", "UserHacks_EstimateTextureRegion", false);
 	SettingWidgetBinder::BindWidgetToBoolSetting(sif, m_ui.gpuPaletteConversion, "EmuCore/GS", "paltex", false);
-	connect(m_ui.cpuSpriteRenderBW, QOverload<int>::of(&QComboBox::currentIndexChanged), this,
+	connect(m_ui.cpuSpriteRenderBW, QOverload<int>::of(&NoScrollQComboBox::currentIndexChanged), this,
 		&GraphicsSettingsWidget::onCPUSpriteRenderBWChanged);
 	connect(
-		m_ui.textureInsideRt, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &GraphicsSettingsWidget::onTextureInsideRtChanged);
+		m_ui.textureInsideRt, QOverload<int>::of(&NoScrollQComboBox::currentIndexChanged), this, &GraphicsSettingsWidget::onTextureInsideRtChanged);
 	connect(m_ui.gpuPaletteConversion, QOverload<int>::of(&QCheckBox::stateChanged), this,
 		&GraphicsSettingsWidget::onGpuPaletteConversionChanged);
 	onCPUSpriteRenderBWChanged();
@@ -293,10 +293,10 @@ GraphicsSettingsWidget::GraphicsSettingsWidget(SettingsDialog* dialog, QWidget* 
 			m_ui.renderer->setCurrentIndex(0);
 	}
 
-	connect(m_ui.renderer, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &GraphicsSettingsWidget::onRendererChanged);
+	connect(m_ui.renderer, QOverload<int>::of(&NoScrollQComboBox::currentIndexChanged), this, &GraphicsSettingsWidget::onRendererChanged);
 	connect(m_ui.enableHWFixes, &QCheckBox::stateChanged, this, &GraphicsSettingsWidget::updateRendererDependentOptions);
-	connect(m_ui.textureFiltering, &QComboBox::currentIndexChanged, this, &GraphicsSettingsWidget::onTextureFilteringChange);
-	connect(m_ui.swTextureFiltering, &QComboBox::currentIndexChanged, this, &GraphicsSettingsWidget::onSWTextureFilteringChange);
+	connect(m_ui.textureFiltering, &NoScrollQComboBox::currentIndexChanged, this, &GraphicsSettingsWidget::onTextureFilteringChange);
+	connect(m_ui.swTextureFiltering, &NoScrollQComboBox::currentIndexChanged, this, &GraphicsSettingsWidget::onSWTextureFilteringChange);
 	updateRendererDependentOptions();
 
 #ifndef _WIN32
@@ -333,7 +333,7 @@ GraphicsSettingsWidget::GraphicsSettingsWidget(SettingsDialog* dialog, QWidget* 
 			Path::Combine(EmuFolders::DataRoot, "videos"));
 
 		SettingWidgetBinder::BindWidgetToStringSetting(sif, m_ui.captureContainer, "EmuCore/GS", "CaptureContainer");
-		connect(m_ui.captureContainer, &QComboBox::currentIndexChanged, this, &GraphicsSettingsWidget::onCaptureContainerChanged);
+		connect(m_ui.captureContainer, &NoScrollQComboBox::currentIndexChanged, this, &GraphicsSettingsWidget::onCaptureContainerChanged);
 
 		SettingWidgetBinder::BindWidgetToBoolSetting(sif, m_ui.enableVideoCapture, "EmuCore/GS", "EnableVideoCapture", true);
 		SettingWidgetBinder::BindWidgetToIntSetting(

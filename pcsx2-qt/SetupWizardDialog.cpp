@@ -195,14 +195,14 @@ void SetupWizardDialog::setupLanguagePage()
 {
 	SettingWidgetBinder::BindWidgetToEnumSetting(nullptr, m_ui.theme, "UI", "Theme",
 		InterfaceSettingsWidget::THEME_NAMES, InterfaceSettingsWidget::THEME_VALUES, QtHost::GetDefaultThemeName(), "InterfaceSettingsWidget");
-	connect(m_ui.theme, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &SetupWizardDialog::themeChanged);
+	connect(m_ui.theme, QOverload<int>::of(&NoScrollQComboBox::currentIndexChanged), this, &SetupWizardDialog::themeChanged);
 
 	for (const std::pair<QString, QString>& it : QtHost::GetAvailableLanguageList())
 		m_ui.language->addItem(it.first, it.second);
 	SettingWidgetBinder::BindWidgetToStringSetting(
 		nullptr, m_ui.language, "UI", "Language", QtHost::GetDefaultLanguage());
 	connect(
-		m_ui.language, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &SetupWizardDialog::languageChanged);
+		m_ui.language, QOverload<int>::of(&NoScrollQComboBox::currentIndexChanged), this, &SetupWizardDialog::languageChanged);
 
 	SettingWidgetBinder::BindWidgetToBoolSetting(
 		nullptr, m_ui.autoUpdateEnabled, "AutoUpdater", "CheckAtStartup", true);
@@ -400,7 +400,7 @@ void SetupWizardDialog::setupControllerPage()
 
 	struct PadWidgets
 	{
-		QComboBox* type_combo;
+		NoScrollQComboBox* type_combo;
 		QLabel* mapping_result;
 		QToolButton* mapping_button;
 	};

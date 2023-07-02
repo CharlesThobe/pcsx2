@@ -133,6 +133,10 @@ target_sources(pcsx2-qt PRIVATE
 	Settings/SettingsDialog.ui
 	Settings/USBBindingWidget_DrivingForce.ui
 	Settings/USBBindingWidget_GTForce.ui
+	CustomQtWidgets/NoScrollQComboBox.h
+	CustomQtWidgets/NoScrollQDoubleSpinBox.h
+	CustomQtWidgets/NoScrollQSlider.h
+	CustomQtWidgets/NoScrollQSpinBox.h
 	Debugger/CpuWidget.cpp
 	Debugger/CpuWidget.h
 	Debugger/CpuWidget.ui
@@ -186,6 +190,7 @@ target_include_directories(pcsx2-qt PRIVATE
 	"${CMAKE_BINARY_DIR}/common/include"
 	"${CMAKE_SOURCE_DIR}/pcsx2"
 	"${CMAKE_SOURCE_DIR}/pcsx2-qt"
+	"${CMAKE_SOURCE_DIR}/pcsx2-qt/CustomQtWidgets"
 )
 
 target_link_libraries(pcsx2-qt PRIVATE

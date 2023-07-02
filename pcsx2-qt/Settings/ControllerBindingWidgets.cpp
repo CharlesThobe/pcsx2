@@ -54,7 +54,7 @@ ControllerBindingWidget::ControllerBindingWidget(QWidget* parent, ControllerSett
 	ControllerSettingWidgetBinder::BindWidgetToInputProfileString(
 		m_dialog->getProfileSettingsInterface(), m_ui.controllerType, m_config_section, "Type", PAD::GetDefaultPadType(port));
 
-	connect(m_ui.controllerType, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &ControllerBindingWidget::onTypeChanged);
+	connect(m_ui.controllerType, QOverload<int>::of(&NoScrollQComboBox::currentIndexChanged), this, &ControllerBindingWidget::onTypeChanged);
 	connect(m_ui.bindings, &QPushButton::clicked, this, &ControllerBindingWidget::onBindingsClicked);
 	connect(m_ui.settings, &QPushButton::clicked, this, &ControllerBindingWidget::onSettingsClicked);
 	connect(m_ui.macros, &QPushButton::clicked, this, &ControllerBindingWidget::onMacrosClicked);
@@ -350,7 +350,7 @@ ControllerMacroEditWidget::ControllerMacroEditWidget(ControllerMacroWidget* pare
 
 	ControllerSettingWidgetBinder::BindWidgetToInputProfileNormalized(
 		dialog->getProfileSettingsInterface(), m_ui.pressure, section, fmt::format("Macro{}Pressure", index + 1u), 100.0f, 1.0f);
-	connect(m_ui.pressure, &QSlider::valueChanged, this, &ControllerMacroEditWidget::onPressureChanged);
+	connect(m_ui.pressure, &NoScrollQSlider::valueChanged, this, &ControllerMacroEditWidget::onPressureChanged);
 	onPressureChanged();
 
 	m_frequency = dialog->getIntValue(section.c_str(), fmt::format("Macro{}Frequency", index + 1u).c_str(), 0);
@@ -565,7 +565,7 @@ void ControllerCustomSettingsWidget::createSettingWidgets(const char* translatio
 
 			case SettingInfo::Type::Integer:
 			{
-				QSpinBox* sb = new QSpinBox(widget_parent);
+				NoScrollQSpinBox* sb = new NoScrollQSpinBox(widget_parent);
 				sb->setObjectName(QString::fromUtf8(si.name));
 				sb->setMinimum(si.IntegerMinValue());
 				sb->setMaximum(si.IntegerMaxValue());
@@ -586,7 +586,7 @@ void ControllerCustomSettingsWidget::createSettingWidgets(const char* translatio
 
 			case SettingInfo::Type::IntegerList:
 			{
-				QComboBox* cb = new QComboBox(widget_parent);
+				NoScrollQComboBox* cb = new NoScrollQComboBox(widget_parent);
 				cb->setObjectName(QString::fromUtf8(si.name));
 				for (u32 i = 0; si.options[i] != nullptr; i++)
 					cb->addItem(qApp->translate(translation_ctx, si.options[i]));
@@ -600,7 +600,7 @@ void ControllerCustomSettingsWidget::createSettingWidgets(const char* translatio
 
 			case SettingInfo::Type::Float:
 			{
-				QDoubleSpinBox* sb = new QDoubleSpinBox(widget_parent);
+				NoScrollQDoubleSpinBox* sb = new NoScrollQDoubleSpinBox(widget_parent);
 				sb->setObjectName(QString::fromUtf8(si.name));
 				sb->setMinimum(si.FloatMinValue() * si.multiplier);
 				sb->setMaximum(si.FloatMaxValue() * si.multiplier);
@@ -637,7 +637,7 @@ void ControllerCustomSettingsWidget::createSettingWidgets(const char* translatio
 
 			case SettingInfo::Type::StringList:
 			{
-				QComboBox* cb = new QComboBox(widget_parent);
+				NoScrollQComboBox* cb = new NoScrollQComboBox(widget_parent);
 				cb->setObjectName(QString::fromUtf8(si.name));
 				if (si.get_options)
 				{
@@ -718,7 +718,7 @@ void ControllerCustomSettingsWidget::restoreDefaults()
 
 			case SettingInfo::Type::Integer:
 			{
-				QSpinBox* widget = findChild<QSpinBox*>(QString::fromStdString(si.name));
+				NoScrollQSpinBox* widget = findChild<NoScrollQSpinBox*>(QString::fromStdString(si.name));
 				if (widget)
 					widget->setValue(si.IntegerDefaultValue());
 			}
@@ -726,7 +726,7 @@ void ControllerCustomSettingsWidget::restoreDefaults()
 
 			case SettingInfo::Type::IntegerList:
 			{
-				QComboBox* widget = findChild<QComboBox*>(QString::fromStdString(si.name));
+				NoScrollQComboBox* widget = findChild<NoScrollQComboBox*>(QString::fromStdString(si.name));
 				if (widget)
 					widget->setCurrentIndex(si.IntegerDefaultValue() - si.IntegerMinValue());
 			}
@@ -734,7 +734,7 @@ void ControllerCustomSettingsWidget::restoreDefaults()
 
 			case SettingInfo::Type::Float:
 			{
-				QDoubleSpinBox* widget = findChild<QDoubleSpinBox*>(QString::fromStdString(si.name));
+				NoScrollQDoubleSpinBox* widget = findChild<NoScrollQDoubleSpinBox*>(QString::fromStdString(si.name));
 				if (widget)
 					widget->setValue(si.FloatDefaultValue() * si.multiplier);
 			}
@@ -750,7 +750,7 @@ void ControllerCustomSettingsWidget::restoreDefaults()
 
 			case SettingInfo::Type::StringList:
 			{
-				QComboBox* widget = findChild<QComboBox*>(QString::fromStdString(si.name));
+				NoScrollQComboBox* widget = findChild<NoScrollQComboBox*>(QString::fromStdString(si.name));
 				if (widget)
 				{
 					const QString default_value(QString::fromUtf8(si.StringDefaultValue()));
@@ -884,8 +884,8 @@ USBDeviceWidget::USBDeviceWidget(QWidget* parent, ControllerSettingsDialog* dial
 	ControllerSettingWidgetBinder::BindWidgetToInputProfileString(
 		m_dialog->getProfileSettingsInterface(), m_ui.deviceType, m_config_section, "Type", "None");
 
-	connect(m_ui.deviceType, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &USBDeviceWidget::onTypeChanged);
-	connect(m_ui.deviceSubtype, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &USBDeviceWidget::onSubTypeChanged);
+	connect(m_ui.deviceType, QOverload<int>::of(&NoScrollQComboBox::currentIndexChanged), this, &USBDeviceWidget::onTypeChanged);
+	connect(m_ui.deviceSubtype, QOverload<int>::of(&NoScrollQComboBox::currentIndexChanged), this, &USBDeviceWidget::onSubTypeChanged);
 	connect(m_ui.bindings, &QPushButton::clicked, this, &USBDeviceWidget::onBindingsClicked);
 	connect(m_ui.settings, &QPushButton::clicked, this, &USBDeviceWidget::onSettingsClicked);
 	connect(m_ui.automaticBinding, &QPushButton::clicked, this, &USBDeviceWidget::onAutomaticBindingClicked);

@@ -33,13 +33,13 @@
      </property>
      <layout class="QGridLayout" name="gridLayout_3">
       <item row="1" column="1">
-       <widget class="QComboBox" name="fastForwardSpeed"/>
+       <widget class="NoScrollQComboBox" name="fastForwardSpeed"/>
       </item>
       <item row="2" column="1">
-       <widget class="QComboBox" name="slowMotionSpeed"/>
+       <widget class="NoScrollQComboBox" name="slowMotionSpeed"/>
       </item>
       <item row="0" column="1">
-       <widget class="QComboBox" name="normalSpeed"/>
+       <widget class="NoScrollQComboBox" name="normalSpeed"/>
       </item>
       <item row="0" column="0">
        <widget class="QLabel" name="label_4">
@@ -125,7 +125,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QComboBox" name="eeCycleSkipping">
+       <widget class="NoScrollQComboBox" name="eeCycleSkipping">
         <item>
          <property name="text">
           <string>Disabled</string>
@@ -156,7 +156,7 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QComboBox" name="eeCycleRate">
+       <widget class="NoScrollQComboBox" name="eeCycleRate">
         <item>
          <property name="text">
           <string>50% (Underclock)</string>
@@ -202,7 +202,7 @@
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="QComboBox" name="affinityControl">
+       <widget class="NoScrollQComboBox" name="affinityControl">
         <item>
          <property name="text">
           <string>Disabled</string>
@@ -250,7 +250,7 @@
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
       <item row="1" column="1">
-       <widget class="QSpinBox" name="maxFrameLatency">
+       <widget class="NoScrollQSpinBox" name="maxFrameLatency">
         <property name="suffix">
          <string extracomment="This string will appear next to the amount of frames selected, in a dropdown box."> frames</string>
         </property>
@@ -305,6 +305,18 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>NoScrollQComboBox</class>
+   <extends>QComboBox</extends>
+   <header>NoScrollQComboBox.h</header>
+  </customwidget>
+  <customwidget>
+   <class>NoScrollQSpinBox</class>
+   <extends>QSpinBox</extends>
+   <header>NoScrollQSpinBox.h</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="../resources/resources.qrc"/>
  </resources>

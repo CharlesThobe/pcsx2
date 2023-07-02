@@ -40,7 +40,7 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QComboBox" name="renderer"/>
+       <widget class="NoScrollQComboBox" name="renderer"/>
       </item>
       <item row="1" column="0">
        <widget class="QLabel" name="label_3">
@@ -50,7 +50,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QComboBox" name="adapter"/>
+       <widget class="NoScrollQComboBox" name="adapter"/>
       </item>
      </layout>
     </widget>
@@ -76,7 +76,7 @@
         </widget>
        </item>
        <item row="0" column="1">
-        <widget class="QComboBox" name="fullscreenModes"/>
+        <widget class="NoScrollQComboBox" name="fullscreenModes"/>
        </item>
        <item row="1" column="0">
         <widget class="QLabel" name="label_27">
@@ -86,7 +86,7 @@
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QComboBox" name="aspectRatio">
+        <widget class="NoScrollQComboBox" name="aspectRatio">
          <item>
           <property name="text">
            <string>Fit to Window / Fullscreen</string>
@@ -117,7 +117,7 @@
         </widget>
        </item>
        <item row="2" column="1">
-        <widget class="QComboBox" name="fmvAspectRatio">
+        <widget class="NoScrollQComboBox" name="fmvAspectRatio">
          <item>
           <property name="text">
            <string>Off (Default)</string>
@@ -148,7 +148,7 @@
         </widget>
        </item>
        <item row="3" column="1">
-        <widget class="QComboBox" name="interlacing">
+        <widget class="NoScrollQComboBox" name="interlacing">
          <item>
           <property name="text">
            <string>Automatic (Default)</string>
@@ -209,7 +209,7 @@
         </widget>
        </item>
        <item row="4" column="1">
-        <widget class="QComboBox" name="bilinearFiltering">
+        <widget class="NoScrollQComboBox" name="bilinearFiltering">
          <item>
           <property name="text">
            <string>None</string>
@@ -235,7 +235,7 @@
         </widget>
        </item>
        <item row="6" column="1">
-        <widget class="QSpinBox" name="stretchY">
+        <widget class="NoScrollQSpinBox" name="stretchY">
          <property name="suffix">
           <string extracomment="Percentage sign that shows next to a value. You might want to add a space before if your language requires it.">%</string>
          </property>
@@ -264,7 +264,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="cropLeft">
+          <widget class="NoScrollQSpinBox" name="cropLeft">
            <property name="suffix">
             <string>px</string>
            </property>
@@ -281,7 +281,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="cropTop">
+          <widget class="NoScrollQSpinBox" name="cropTop">
            <property name="suffix">
             <string>px</string>
            </property>
@@ -298,7 +298,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="cropRight">
+          <widget class="NoScrollQSpinBox" name="cropRight">
            <property name="suffix">
             <string>px</string>
            </property>
@@ -315,7 +315,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="cropBottom">
+          <widget class="NoScrollQSpinBox" name="cropBottom">
            <property name="suffix">
             <string>px</string>
            </property>
@@ -399,7 +399,7 @@
        <item row="5" column="1">
         <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,0,0,0">
          <item>
-          <widget class="QComboBox" name="screenshotSize">
+          <widget class="NoScrollQComboBox" name="screenshotSize">
            <item>
             <property name="text">
              <string>Screen Resolution</string>
@@ -418,7 +418,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="screenshotFormat">
+          <widget class="NoScrollQComboBox" name="screenshotFormat">
            <item>
             <property name="text">
              <string>PNG</string>
@@ -439,7 +439,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="screenshotQuality">
+          <widget class="NoScrollQSpinBox" name="screenshotQuality">
            <property name="suffix">
             <string>%</string>
            </property>
@@ -468,7 +468,7 @@
         </widget>
        </item>
        <item row="0" column="1">
-        <widget class="QComboBox" name="upscaleMultiplier"/>
+        <widget class="NoScrollQComboBox" name="upscaleMultiplier"/>
        </item>
        <item row="1" column="0">
         <widget class="QLabel" name="label_6">
@@ -478,7 +478,7 @@
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QComboBox" name="mipmapping">
+        <widget class="NoScrollQComboBox" name="mipmapping">
          <item>
           <property name="text">
            <string>Automatic (Default)</string>
@@ -509,7 +509,7 @@
         </widget>
        </item>
        <item row="2" column="1">
-        <widget class="QComboBox" name="textureFiltering">
+        <widget class="NoScrollQComboBox" name="textureFiltering">
          <item>
           <property name="text">
            <string>Nearest</string>
@@ -540,7 +540,7 @@
         </widget>
        </item>
        <item row="3" column="1">
-        <widget class="QComboBox" name="trilinearFiltering">
+        <widget class="NoScrollQComboBox" name="trilinearFiltering">
          <item>
           <property name="text">
            <string>Automatic (Default)</string>
@@ -571,7 +571,7 @@
         </widget>
        </item>
        <item row="4" column="1">
-        <widget class="QComboBox" name="anisotropicFiltering"/>
+        <widget class="NoScrollQComboBox" name="anisotropicFiltering"/>
        </item>
        <item row="5" column="0">
         <widget class="QLabel" name="label_2">
@@ -581,7 +581,7 @@
         </widget>
        </item>
        <item row="5" column="1">
-        <widget class="QComboBox" name="dithering">
+        <widget class="NoScrollQComboBox" name="dithering">
          <item>
           <property name="text">
            <string>Off</string>
@@ -607,7 +607,7 @@
         </widget>
        </item>
        <item row="6" column="1">
-        <widget class="QComboBox" name="blending">
+        <widget class="NoScrollQComboBox" name="blending">
          <item>
           <property name="text">
            <string>Minimum</string>
@@ -648,7 +648,7 @@
         </widget>
        </item>
        <item row="7" column="1">
-        <widget class="QComboBox" name="texturePreloading">
+        <widget class="NoScrollQComboBox" name="texturePreloading">
          <item>
           <property name="text">
            <string>None</string>
@@ -706,7 +706,7 @@
         </widget>
        </item>
        <item row="0" column="1">
-        <widget class="QComboBox" name="swTextureFiltering">
+        <widget class="NoScrollQComboBox" name="swTextureFiltering">
          <property name="enabled">
           <bool>true</bool>
          </property>
@@ -749,7 +749,7 @@
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QSpinBox" name="extraSWThreads">
+        <widget class="NoScrollQSpinBox" name="extraSWThreads">
          <property name="suffix">
           <string> threads</string>
          </property>
@@ -788,7 +788,7 @@
         </widget>
        </item>
        <item row="0" column="1">
-        <widget class="QComboBox" name="halfScreenFix">
+        <widget class="NoScrollQComboBox" name="halfScreenFix">
          <item>
           <property name="text">
            <string>Automatic (Default)</string>
@@ -816,7 +816,7 @@
        <item row="1" column="1">
         <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="1,0">
          <item>
-          <widget class="QComboBox" name="cpuSpriteRenderBW">
+          <widget class="NoScrollQComboBox" name="cpuSpriteRenderBW">
            <item>
             <property name="text">
              <string>0 (Disabled)</string>
@@ -875,7 +875,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="cpuSpriteRenderLevel">
+          <widget class="NoScrollQComboBox" name="cpuSpriteRenderLevel">
            <item>
             <property name="text">
              <string>Sprites Only</string>
@@ -903,7 +903,7 @@
         </widget>
        </item>
        <item row="2" column="1">
-        <widget class="QComboBox" name="cpuCLUTRender">
+        <widget class="NoScrollQComboBox" name="cpuCLUTRender">
          <property name="currentText">
           <string extracomment="0 (Disabled)">0 (Disabled)</string>
          </property>
@@ -935,7 +935,7 @@
         </widget>
        </item>
        <item row="3" column="1">
-        <widget class="QComboBox" name="gpuTargetCLUTMode">
+        <widget class="NoScrollQComboBox" name="gpuTargetCLUTMode">
          <item>
           <property name="text">
            <string>Disabled (Default)</string>
@@ -961,7 +961,7 @@
         </widget>
        </item>
        <item row="4" column="1">
-        <widget class="QComboBox" name="hwAutoFlush">
+        <widget class="NoScrollQComboBox" name="hwAutoFlush">
          <item>
           <property name="text">
            <string>Disabled (Default)</string>
@@ -987,7 +987,7 @@
         </widget>
        </item>
        <item row="5" column="1">
-        <widget class="QComboBox" name="textureInsideRt">
+        <widget class="NoScrollQComboBox" name="textureInsideRt">
          <item>
           <property name="text">
            <string>Disabled (Default)</string>
@@ -1015,14 +1015,14 @@
        <item row="6" column="1">
         <layout class="QHBoxLayout" name="horizontalLayout">
          <item>
-          <widget class="QSpinBox" name="skipDrawStart">
+          <widget class="NoScrollQSpinBox" name="skipDrawStart">
            <property name="maximum">
             <number>10000</number>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="skipDrawEnd">
+          <widget class="NoScrollQSpinBox" name="skipDrawEnd">
            <property name="maximum">
             <number>10000</number>
            </property>
@@ -1119,7 +1119,7 @@
         </widget>
        </item>
        <item row="0" column="1">
-        <widget class="QComboBox" name="halfPixelOffset">
+        <widget class="NoScrollQComboBox" name="halfPixelOffset">
          <item>
           <property name="text">
            <string>Off (Default)</string>
@@ -1150,7 +1150,7 @@
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QComboBox" name="roundSprite">
+        <widget class="NoScrollQComboBox" name="roundSprite">
          <item>
           <property name="text">
            <string>Off (Default)</string>
@@ -1185,7 +1185,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="textureOffsetX">
+          <widget class="NoScrollQSpinBox" name="textureOffsetX">
            <property name="maximum">
             <number>1000</number>
            </property>
@@ -1199,7 +1199,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="textureOffsetY">
+          <widget class="NoScrollQSpinBox" name="textureOffsetY">
            <property name="maximum">
             <number>1000</number>
            </property>
@@ -1380,7 +1380,7 @@
           <item row="0" column="1">
            <layout class="QHBoxLayout" name="horizontalLayout_6">
             <item>
-             <widget class="QComboBox" name="casMode">
+             <widget class="NoScrollQComboBox" name="casMode">
               <item>
                <property name="text">
                 <string>None (Default)</string>
@@ -1408,7 +1408,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QSpinBox" name="casSharpness">
+               <widget class="NoScrollQSpinBox" name="casSharpness">
                 <property name="suffix">
                  <string extracomment="Percentage sign that will appear next to a number. Add a space or whatever is needed before depending on your language.">%</string>
                 </property>
@@ -1448,7 +1448,7 @@
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="QComboBox" name="tvShader">
+           <widget class="NoScrollQComboBox" name="tvShader">
             <item>
              <property name="text">
               <string>None (Default)</string>
@@ -1511,7 +1511,7 @@
              </widget>
             </item>
             <item>
-             <widget class="QSpinBox" name="shadeBoostBrightness">
+             <widget class="NoScrollQSpinBox" name="shadeBoostBrightness">
               <property name="minimum">
                <number>1</number>
               </property>
@@ -1528,7 +1528,7 @@
              </widget>
             </item>
             <item>
-             <widget class="QSpinBox" name="shadeBoostContrast">
+             <widget class="NoScrollQSpinBox" name="shadeBoostContrast">
               <property name="minimum">
                <number>1</number>
               </property>
@@ -1545,7 +1545,7 @@
              </widget>
             </item>
             <item>
-             <widget class="QSpinBox" name="shadeBoostSaturation">
+             <widget class="NoScrollQSpinBox" name="shadeBoostSaturation">
               <property name="minimum">
                <number>1</number>
               </property>
@@ -1593,7 +1593,7 @@
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="QSpinBox" name="osdScale">
+           <widget class="NoScrollQSpinBox" name="osdScale">
             <property name="suffix">
              <string>%</string>
             </property>
@@ -1767,7 +1767,7 @@
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="QComboBox" name="captureContainer"/>
+           <widget class="NoScrollQComboBox" name="captureContainer"/>
           </item>
           <item row="1" column="0" colspan="2">
            <layout class="QGridLayout" name="gridLayout_10" columnstretch="1,1">
@@ -1800,7 +1800,7 @@
                 </widget>
                </item>
                <item row="0" column="1">
-                <widget class="QComboBox" name="audioCaptureCodec"/>
+                <widget class="NoScrollQComboBox" name="audioCaptureCodec"/>
                </item>
                <item row="1" column="0">
                 <widget class="QLabel" name="audioCaptureBitrateLabel">
@@ -1810,7 +1810,7 @@
                 </widget>
                </item>
                <item row="1" column="1">
-                <widget class="QSpinBox" name="audioCaptureBitrate">
+                <widget class="NoScrollQSpinBox" name="audioCaptureBitrate">
                  <property name="suffix">
                   <string> kbps</string>
                  </property>
@@ -1868,7 +1868,7 @@
                 </widget>
                </item>
                <item row="0" column="1">
-                <widget class="QComboBox" name="videoCaptureCodec"/>
+                <widget class="NoScrollQComboBox" name="videoCaptureCodec"/>
                </item>
                <item row="1" column="0">
                 <widget class="QLabel" name="videoCaptureBitrateLabel">
@@ -1878,7 +1878,7 @@
                 </widget>
                </item>
                <item row="1" column="1">
-                <widget class="QSpinBox" name="videoCaptureBitrate">
+                <widget class="NoScrollQSpinBox" name="videoCaptureBitrate">
                  <property name="suffix">
                   <string extracomment="Unit that will appear next to a number. Alter the space or whatever is needed before the text depending on your language."> kbps</string>
                  </property>
@@ -1903,7 +1903,7 @@
                <item row="2" column="1">
                 <layout class="QHBoxLayout" name="horizontalLayout_10" stretch="1,0,1,0">
                  <item>
-                  <widget class="QSpinBox" name="videoCaptureWidth">
+                  <widget class="NoScrollQSpinBox" name="videoCaptureWidth">
                    <property name="minimum">
                     <number>320</number>
                    </property>
@@ -1926,7 +1926,7 @@
                   </widget>
                  </item>
                  <item>
-                  <widget class="QSpinBox" name="videoCaptureHeight">
+                  <widget class="NoScrollQSpinBox" name="videoCaptureHeight">
                    <property name="minimum">
                     <number>240</number>
                    </property>
@@ -2009,7 +2009,7 @@
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="QComboBox" name="gsDownloadMode">
+           <widget class="NoScrollQComboBox" name="gsDownloadMode">
             <item>
              <property name="text">
               <string>Accurate (Recommended)</string>
@@ -2040,7 +2040,7 @@
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="QComboBox" name="gsDumpCompression">
+           <widget class="NoScrollQComboBox" name="gsDumpCompression">
             <item>
              <property name="text">
               <string>Uncompressed</string>
@@ -2091,7 +2091,7 @@
            </widget>
           </item>
           <item row="2" column="1">
-           <widget class="QComboBox" name="exclusiveFullscreenControl">
+           <widget class="NoScrollQComboBox" name="exclusiveFullscreenControl">
             <item>
              <property name="text">
               <string>Automatic (Default)</string>
@@ -2126,7 +2126,7 @@
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="QComboBox" name="overrideTextureBarriers">
+           <widget class="NoScrollQComboBox" name="overrideTextureBarriers">
             <item>
              <property name="text">
               <string>Automatic (Default)</string>
@@ -2218,6 +2218,18 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>NoScrollQComboBox</class>
+   <extends>QComboBox</extends>
+   <header>NoScrollQComboBox.h</header>
+  </customwidget>
+  <customwidget>
+   <class>NoScrollQSpinBox</class>
+   <extends>QSpinBox</extends>
+   <header>NoScrollQSpinBox.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

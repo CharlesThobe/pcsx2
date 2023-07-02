@@ -78,7 +78,7 @@ DEV9SettingsWidget::DEV9SettingsWidget(SettingsDialog* dialog, QWidget* parent)
 	//////////////////////////////////////////////////////////////////////////
 	// Eth Device Settings
 	//////////////////////////////////////////////////////////////////////////
-	connect(m_ui.ethDevType, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &DEV9SettingsWidget::onEthDeviceTypeChanged);
+	connect(m_ui.ethDevType, QOverload<int>::of(&NoScrollQComboBox::currentIndexChanged), this, &DEV9SettingsWidget::onEthDeviceTypeChanged);
 
 	m_api_list.push_back(Pcsx2Config::DEV9Options::NetApi::Unset);
 
@@ -153,7 +153,7 @@ DEV9SettingsWidget::DEV9SettingsWidget(SettingsDialog* dialog, QWidget* parent)
 	}
 	//onEthDeviceTypeChanged gets called automatically
 
-	connect(m_ui.ethDev, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &DEV9SettingsWidget::onEthDeviceChanged);
+	connect(m_ui.ethDev, QOverload<int>::of(&NoScrollQComboBox::currentIndexChanged), this, &DEV9SettingsWidget::onEthDeviceChanged);
 
 	//////////////////////////////////////////////////////////////////////////
 	// DHCP Settings
@@ -214,12 +214,12 @@ DEV9SettingsWidget::DEV9SettingsWidget(SettingsDialog* dialog, QWidget* parent)
 	SettingWidgetBinder::BindWidgetToEnumSetting(sif, m_ui.ethDNS1Mode, "DEV9/Eth", "ModeDNS1",
 		s_dns_name, Pcsx2Config::DEV9Options::DnsModeNames, Pcsx2Config::DEV9Options::DnsModeNames[static_cast<int>(Pcsx2Config::DEV9Options::DnsMode::Auto)], "DEV9SettingsWidget");
 	onEthDNSModeChanged(m_ui.ethDNS1Mode, m_ui.ethDNS1Mode->currentIndex(), m_ui.ethDNS1Addr, "DEV9/Eth", "ModeDNS1");
-	connect(m_ui.ethDNS1Mode, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [&](int index) { onEthDNSModeChanged(m_ui.ethDNS1Mode, index, m_ui.ethDNS1Addr, "DEV9/Eth", "ModeDNS1"); });
+	connect(m_ui.ethDNS1Mode, QOverload<int>::of(&NoScrollQComboBox::currentIndexChanged), this, [&](int index) { onEthDNSModeChanged(m_ui.ethDNS1Mode, index, m_ui.ethDNS1Addr, "DEV9/Eth", "ModeDNS1"); });
 
 	SettingWidgetBinder::BindWidgetToEnumSetting(sif, m_ui.ethDNS2Mode, "DEV9/Eth", "ModeDNS2",
 		s_dns_name, Pcsx2Config::DEV9Options::DnsModeNames, Pcsx2Config::DEV9Options::DnsModeNames[static_cast<int>(Pcsx2Config::DEV9Options::DnsMode::Auto)], "DEV9SettingsWidget");
 	onEthDNSModeChanged(m_ui.ethDNS2Mode, m_ui.ethDNS2Mode->currentIndex(), m_ui.ethDNS2Addr, "DEV9/Eth", "ModeDNS2");
-	connect(m_ui.ethDNS2Mode, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [&](int index) { onEthDNSModeChanged(m_ui.ethDNS2Mode, index, m_ui.ethDNS2Addr, "DEV9/Eth", "ModeDNS2"); });
+	connect(m_ui.ethDNS2Mode, QOverload<int>::of(&NoScrollQComboBox::currentIndexChanged), this, [&](int index) { onEthDNSModeChanged(m_ui.ethDNS2Mode, index, m_ui.ethDNS2Addr, "DEV9/Eth", "ModeDNS2"); });
 
 	//////////////////////////////////////////////////////////////////////////
 	// DNS Settings
@@ -279,22 +279,22 @@ DEV9SettingsWidget::DEV9SettingsWidget(SettingsDialog* dialog, QWidget* parent)
 			sizeOpt = size;
 		const int sizeGlobal = (u64)Host::GetBaseIntSettingValue("DEV9/Hdd", "HddSizeSectors", 0) * 512 / (1024 * 1024 * 1024);
 
-		SettingWidgetBinder::SettingAccessor<QSpinBox>::makeNullableInt(m_ui.hddSizeSpinBox, sizeGlobal);
-		SettingWidgetBinder::SettingAccessor<QSpinBox>::setNullableIntValue(m_ui.hddSizeSpinBox, sizeOpt);
+		SettingWidgetBinder::SettingAccessor<NoScrollQSpinBox>::makeNullableInt(m_ui.hddSizeSpinBox, sizeGlobal);
+		SettingWidgetBinder::SettingAccessor<NoScrollQSpinBox>::setNullableIntValue(m_ui.hddSizeSpinBox, sizeOpt);
 
 		m_ui.hddSizeSlider->setValue(sizeOpt.value_or(sizeGlobal));
 
 		m_ui.hddSizeSlider->setContextMenuPolicy(Qt::CustomContextMenu);
-		connect(m_ui.hddSizeSlider, &QSlider::customContextMenuRequested, this, &DEV9SettingsWidget::onHddSizeSliderContext);
+		connect(m_ui.hddSizeSlider, &NoScrollQSlider::customContextMenuRequested, this, &DEV9SettingsWidget::onHddSizeSliderContext);
 	}
 	else
 	{
 		m_ui.hddSizeSlider->setValue(size);
-		SettingWidgetBinder::SettingAccessor<QSpinBox>::setIntValue(m_ui.hddSizeSpinBox, size);
+		SettingWidgetBinder::SettingAccessor<NoScrollQSpinBox>::setIntValue(m_ui.hddSizeSpinBox, size);
 	}
 
-	connect(m_ui.hddSizeSlider, QOverload<int>::of(&QSlider::valueChanged), this, &DEV9SettingsWidget::onHddSizeSlide);
-	SettingWidgetBinder::SettingAccessor<QSpinBox>::connectValueChanged(m_ui.hddSizeSpinBox, [&]() { onHddSizeAccessorSpin(); });
+	connect(m_ui.hddSizeSlider, QOverload<int>::of(&NoScrollQSlider::valueChanged), this, &DEV9SettingsWidget::onHddSizeSlide);
+	SettingWidgetBinder::SettingAccessor<NoScrollQSpinBox>::connectValueChanged(m_ui.hddSizeSpinBox, [&]() { onHddSizeAccessorSpin(); });
 
 	connect(m_ui.hddCreate, &QPushButton::clicked, this, &DEV9SettingsWidget::onHddCreateClicked);
 }
@@ -454,7 +454,7 @@ void DEV9SettingsWidget::onEthAutoChanged(QCheckBox* sender, int state, QLineEdi
 		input->setEnabled(false);
 }
 
-void DEV9SettingsWidget::onEthDNSModeChanged(QComboBox* sender, int index, QLineEdit* input, const char* section, const char* key)
+void DEV9SettingsWidget::onEthDNSModeChanged(NoScrollQComboBox* sender, int index, QLineEdit* input, const char* section, const char* key)
 {
 	if (sender->isEnabled())
 	{
@@ -760,7 +760,7 @@ void DEV9SettingsWidget::onHddSizeSlide(int i)
 {
 	// We have to call onHddSizeAccessorSpin() ourself, as the value could still be considered null when the valueChanged signal is fired
 	QSignalBlocker sb(m_ui.hddSizeSpinBox);
-	SettingWidgetBinder::SettingAccessor<QSpinBox>::setNullableIntValue(m_ui.hddSizeSpinBox, i);
+	SettingWidgetBinder::SettingAccessor<NoScrollQSpinBox>::setNullableIntValue(m_ui.hddSizeSpinBox, i);
 	onHddSizeAccessorSpin();
 }
 
@@ -775,7 +775,7 @@ void DEV9SettingsWidget::onHddSizeSliderReset([[maybe_unused]] bool checked)
 {
 	// We have to call onHddSizeAccessorSpin() ourself, as the value could still be considered non-null when the valueChanged signal is fired
 	QSignalBlocker sb(m_ui.hddSizeSpinBox);
-	SettingWidgetBinder::SettingAccessor<QSpinBox>::setNullableIntValue(m_ui.hddSizeSpinBox, std::nullopt);
+	SettingWidgetBinder::SettingAccessor<NoScrollQSpinBox>::setNullableIntValue(m_ui.hddSizeSpinBox, std::nullopt);
 	onHddSizeAccessorSpin();
 }
 
@@ -785,7 +785,7 @@ void DEV9SettingsWidget::onHddSizeAccessorSpin()
 	QSignalBlocker sb(m_ui.hddSizeSlider);
 	if (m_dialog->isPerGameSettings())
 	{
-		std::optional<int> new_value = SettingWidgetBinder::SettingAccessor<QSpinBox>::getNullableIntValue(m_ui.hddSizeSpinBox);
+		std::optional<int> new_value = SettingWidgetBinder::SettingAccessor<NoScrollQSpinBox>::getNullableIntValue(m_ui.hddSizeSpinBox);
 
 		const int sizeGlobal = (u64)Host::GetBaseIntSettingValue("DEV9/Hdd", "HddSizeSectors", 0) * 512 / (1024 * 1024 * 1024);
 		m_ui.hddSizeSlider->setValue(new_value.value_or(sizeGlobal));
@@ -797,7 +797,7 @@ void DEV9SettingsWidget::onHddSizeAccessorSpin()
 	}
 	else
 	{
-		const int new_value = SettingWidgetBinder::SettingAccessor<QSpinBox>::getIntValue(m_ui.hddSizeSpinBox);
+		const int new_value = SettingWidgetBinder::SettingAccessor<NoScrollQSpinBox>::getIntValue(m_ui.hddSizeSpinBox);
 		m_ui.hddSizeSlider->setValue(new_value);
 		m_dialog->setIntSettingValue("DEV9/Hdd", "HddSizeSectors", new_value * (1024 * 1024 * 1024 / 512));
 	}
@@ -857,7 +857,7 @@ void DEV9SettingsWidget::showEvent(QShowEvent* event)
 	const std::string value = m_dialog->getStringValue("DEV9/Eth", "EthApi", Pcsx2Config::DEV9Options::NetApiNames[static_cast<int>(Pcsx2Config::DEV9Options::NetApi::Unset)]).value();
 
 	//disconnect temporally to prevent saving a vaule already in the config file
-	disconnect(m_ui.ethDev, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &DEV9SettingsWidget::onEthDeviceChanged);
+	disconnect(m_ui.ethDev, QOverload<int>::of(&NoScrollQComboBox::currentIndexChanged), this, &DEV9SettingsWidget::onEthDeviceChanged);
 	for (int i = 0; m_api_namelist[i] != nullptr; i++)
 	{
 		if (value == m_api_valuelist[i])
@@ -866,7 +866,7 @@ void DEV9SettingsWidget::showEvent(QShowEvent* event)
 			break;
 		}
 	}
-	connect(m_ui.ethDev, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &DEV9SettingsWidget::onEthDeviceChanged);
+	connect(m_ui.ethDev, QOverload<int>::of(&NoScrollQComboBox::currentIndexChanged), this, &DEV9SettingsWidget::onEthDeviceChanged);
 }
 
 /*

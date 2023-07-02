@@ -67,7 +67,7 @@
       <item>
        <layout class="QHBoxLayout" name="pressureLayout">
         <item>
-         <widget class="QSlider" name="pressure">
+         <widget class="NoScrollQSlider" name="pressure">
           <property name="minimum">
            <number>1</number>
           </property>
@@ -81,7 +81,7 @@
            <enum>Qt::Horizontal</enum>
           </property>
           <property name="tickPosition">
-           <enum>QSlider::TicksBelow</enum>
+           <enum>NoScrollQSlider::TicksBelow</enum>
           </property>
          </widget>
         </item>
@@ -199,6 +199,11 @@
    <class>InputBindingWidget</class>
    <extends>QPushButton</extends>
    <header>Settings/InputBindingWidget.h</header>
+  </customwidget>
+  <customwidget>
+   <class>NoScrollQSlider</class>
+   <extends>QSlider</extends>
+   <header>NoScrollQSlider.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

@@ -159,7 +159,7 @@
           </widget>
          </item>
          <item row="0" column="1">
-          <widget class="QComboBox" name="language">
+          <widget class="NoScrollQComboBox" name="language">
            <property name="minimumSize">
             <size>
              <width>200</width>
@@ -176,7 +176,7 @@
           </widget>
          </item>
          <item row="1" column="1">
-          <widget class="QComboBox" name="theme"/>
+          <widget class="NoScrollQComboBox" name="theme"/>
          </item>
          <item row="3" column="1">
           <spacer name="verticalSpacer_3">
@@ -448,7 +448,7 @@
          </property>
          <layout class="QFormLayout" name="formLayout">
           <item row="0" column="1">
-           <widget class="QComboBox" name="controller1Type"/>
+           <widget class="NoScrollQComboBox" name="controller1Type"/>
           </item>
           <item row="1" column="0">
            <widget class="QLabel" name="label_12">
@@ -519,7 +519,7 @@
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="QComboBox" name="controller2Type"/>
+           <widget class="NoScrollQComboBox" name="controller2Type"/>
           </item>
           <item row="1" column="0">
            <widget class="QLabel" name="label_14">
@@ -661,6 +661,13 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>NoScrollQComboBox</class>
+   <extends>QComboBox</extends>
+   <header>NoScrollQComboBox.h</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="resources/resources.qrc"/>
   <include location="resources/resources.qrc"/>

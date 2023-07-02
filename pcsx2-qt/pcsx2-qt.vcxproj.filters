@@ -28,6 +28,9 @@
     <Filter Include="Translations">
       <UniqueIdentifier>{ad04f939-64a0-4039-97aa-a38b8aa46855}</UniqueIdentifier>
     </Filter>
+    <Filter Include="CustomQtWidgets">
+      <UniqueIdentifier>{cc3d587c-5b16-4434-b24d-a402fd84d352}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="..\pcsx2\windows\PCSX2.rc" />
@@ -336,6 +339,18 @@
     <ClCompile Include="$(IntDir)moc_SetupWizardDialog.cpp">
       <Filter>moc</Filter>
     </ClCompile>
+    <ClCompile Include="$(IntDir)CustomQtWidgets\moc_NoScrollQComboBox.cpp">
+      <Filter>moc</Filter>
+    </ClCompile>
+    <ClCompile Include="$(IntDir)CustomQtWidgets\moc_NoScrollQDoubleSpinBox.cpp">
+      <Filter>moc</Filter>
+    </ClCompile>
+    <ClCompile Include="$(IntDir)CustomQtWidgets\moc_NoScrollQSlider.cpp">
+      <Filter>moc</Filter>
+    </ClCompile>
+    <ClCompile Include="$(IntDir)CustomQtWidgets\moc_NoScrollQSpinBox.cpp">
+      <Filter>moc</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="..\pcsx2\windows\PCSX2.manifest">
@@ -489,6 +504,18 @@
     </QtMoc>
     <QtMoc Include="Settings\GamePatchSettingsWidget.h">
       <Filter>Settings</Filter>
+    </QtMoc>
+    <QtMoc Include="CustomQtWidgets\NoScrollQComboBox.h">
+      <Filter>CustomQtWidgets</Filter>
+    </QtMoc>
+    <QtMoc Include="CustomQtWidgets\NoScrollQDoubleSpinBox.h">
+      <Filter>CustomQtWidgets</Filter>
+    </QtMoc>
+    <QtMoc Include="CustomQtWidgets\NoScrollQSlider.h">
+      <Filter>CustomQtWidgets</Filter>
+    </QtMoc>
+    <QtMoc Include="CustomQtWidgets\NoScrollQSpinBox.h">
+      <Filter>CustomQtWidgets</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>

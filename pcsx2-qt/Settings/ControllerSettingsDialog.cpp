@@ -48,7 +48,7 @@ ControllerSettingsDialog::ControllerSettingsDialog(QWidget* parent /* = nullptr 
 
 	m_ui.settingsCategory->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
 	connect(m_ui.settingsCategory, &QListWidget::currentRowChanged, this, &ControllerSettingsDialog::onCategoryCurrentRowChanged);
-	connect(m_ui.currentProfile, &QComboBox::currentIndexChanged, this, &ControllerSettingsDialog::onCurrentProfileChanged);
+	connect(m_ui.currentProfile, &NoScrollQComboBox::currentIndexChanged, this, &ControllerSettingsDialog::onCurrentProfileChanged);
 	connect(m_ui.buttonBox, &QDialogButtonBox::rejected, this, &ControllerSettingsDialog::close);
 	connect(m_ui.newProfile, &QPushButton::clicked, this, &ControllerSettingsDialog::onNewProfileClicked);
 	connect(m_ui.loadProfile, &QPushButton::clicked, this, &ControllerSettingsDialog::onLoadProfileClicked);

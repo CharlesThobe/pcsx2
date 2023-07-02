@@ -183,11 +183,11 @@ ControllerMouseSettingsDialog::ControllerMouseSettingsDialog(QWidget* parent, Co
 	ControllerSettingWidgetBinder::BindWidgetToInputProfileFloat(sif, m_ui.pointerYDeadZoneSlider, "Pad", "PointerYDeadZone", 20.0f);
 	ControllerSettingWidgetBinder::BindWidgetToInputProfileFloat(sif, m_ui.pointerInertiaSlider, "Pad", "PointerInertia", 10.0f);
 
-	connect(m_ui.pointerXSpeedSlider, &QSlider::valueChanged, this, [this](int value) { m_ui.pointerXSpeedVal->setText(QStringLiteral("%1").arg(value)); });
-	connect(m_ui.pointerYSpeedSlider, &QSlider::valueChanged, this, [this](int value) { m_ui.pointerYSpeedVal->setText(QStringLiteral("%1").arg(value)); });
-	connect(m_ui.pointerXDeadZoneSlider, &QSlider::valueChanged, this, [this](int value) { m_ui.pointerXDeadZoneVal->setText(QStringLiteral("%1").arg(value)); });
-	connect(m_ui.pointerYDeadZoneSlider, &QSlider::valueChanged, this, [this](int value) { m_ui.pointerYDeadZoneVal->setText(QStringLiteral("%1").arg(value)); });
-	connect(m_ui.pointerInertiaSlider, &QSlider::valueChanged, this, [this](int value) { m_ui.pointerInertiaVal->setText(QStringLiteral("%1").arg(value)); });
+	connect(m_ui.pointerXSpeedSlider, &NoScrollQSlider::valueChanged, this, [this](int value) { m_ui.pointerXSpeedVal->setText(QStringLiteral("%1").arg(value)); });
+	connect(m_ui.pointerYSpeedSlider, &NoScrollQSlider::valueChanged, this, [this](int value) { m_ui.pointerYSpeedVal->setText(QStringLiteral("%1").arg(value)); });
+	connect(m_ui.pointerXDeadZoneSlider, &NoScrollQSlider::valueChanged, this, [this](int value) { m_ui.pointerXDeadZoneVal->setText(QStringLiteral("%1").arg(value)); });
+	connect(m_ui.pointerYDeadZoneSlider, &NoScrollQSlider::valueChanged, this, [this](int value) { m_ui.pointerYDeadZoneVal->setText(QStringLiteral("%1").arg(value)); });
+	connect(m_ui.pointerInertiaSlider, &NoScrollQSlider::valueChanged, this, [this](int value) { m_ui.pointerInertiaVal->setText(QStringLiteral("%1").arg(value)); });
 
 	m_ui.pointerXSpeedVal->setText(QStringLiteral("%1").arg(m_ui.pointerXSpeedSlider->value()));
 	m_ui.pointerYSpeedVal->setText(QStringLiteral("%1").arg(m_ui.pointerYSpeedSlider->value()));

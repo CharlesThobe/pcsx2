@@ -37,7 +37,7 @@ private Q_SLOTS:
 	void onEthDHCPInterceptChanged(int state);
 	void onEthIPChanged(QLineEdit* sender, const char* section, const char* key);
 	void onEthAutoChanged(QCheckBox* sender, int state, QLineEdit* input, const char* section, const char* key);
-	void onEthDNSModeChanged(QComboBox* sender, int index, QLineEdit* input, const char* section, const char* key);
+	void onEthDNSModeChanged(NoScrollQComboBox* sender, int index, QLineEdit* input, const char* section, const char* key);
 	void onEthHostAdd();
 	void onEthHostDel();
 	void onEthHostExport();

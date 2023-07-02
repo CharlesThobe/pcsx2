@@ -137,12 +137,12 @@ void GameListWidget::initialize()
 
 	connect(m_ui.viewGameList, &QPushButton::clicked, this, &GameListWidget::showGameList);
 	connect(m_ui.viewGameGrid, &QPushButton::clicked, this, &GameListWidget::showGameGrid);
-	connect(m_ui.gridScale, &QSlider::valueChanged, this, &GameListWidget::gridIntScale);
+	connect(m_ui.gridScale, &NoScrollQSlider::valueChanged, this, &GameListWidget::gridIntScale);
 	connect(m_ui.viewGridTitles, &QPushButton::toggled, this, &GameListWidget::setShowCoverTitles);
-	connect(m_ui.filterType, &QComboBox::currentIndexChanged, this, [this](int index) {
+	connect(m_ui.filterType, &NoScrollQComboBox::currentIndexChanged, this, [this](int index) {
 		m_sort_model->setFilterType((index == 0) ? GameList::EntryType::Count : static_cast<GameList::EntryType>(index - 1));
 	});
-	connect(m_ui.filterRegion, &QComboBox::currentIndexChanged, this, [this](int index) {
+	connect(m_ui.filterRegion, &NoScrollQComboBox::currentIndexChanged, this, [this](int index) {
 		m_sort_model->setFilterRegion((index == 0) ? GameList::Region::Count : static_cast<GameList::Region>(index - 1));
 	});
 	connect(m_ui.searchText, &QLineEdit::textChanged, this, [this](const QString& text) {
