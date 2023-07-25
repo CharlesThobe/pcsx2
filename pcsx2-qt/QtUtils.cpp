@@ -48,6 +48,16 @@
 #include <qpa/qplatformnativeinterface.h>
 #endif
 
+#define FLATPAK_BUILD
+#ifdef FLATPAK_BUILD
+#include <stdio.h>
+#include <string.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <dbus/dbus.h>
+#endif
+
 namespace QtUtils
 {
 	void MarkActionAsDefault(QAction* action)
@@ -143,8 +153,92 @@ namespace QtUtils
 		ResizeColumnsForView(view, widths);
 	}
 
+#ifdef FLATPAK_BUILD
+	bool OpenFolder(const int fd)
+	{
+	    DBusError error;
+	    DBusConnection* connection = nullptr;
+	    static DBusConnection* s_comparison_connection;
+	    DBusMessage* message = nullptr;
+	    DBusMessage* response = nullptr;
+	    DBusMessageIter message_itr;
+	    DBusMessageIter sub_iterator;
+	    const char* parent_window = "";
+	    bool exit_status = false;
+
+	    dbus_error_init(&error);
+	    // Calling dbus_bus_get() after the first time returns a pointer to the existing connection.
+	    connection = dbus_bus_get(DBUS_BUS_SESSION, &error);
+	    if (!connection || (dbus_error_is_set(&error)))
+	        goto cleanup;
+	    if (s_comparison_connection != connection)
+	    {
+	        dbus_connection_set_exit_on_disconnect(connection, false);
+	        s_comparison_connection = connection;
+	    }
+	    message = dbus_message_new_method_call("org.freedesktop.portal.Desktop", "/org/freedesktop/portal/desktop", "org.freedesktop.portal.OpenURI", "OpenFile");
+	    if (!message)
+	        goto cleanup;
+	    // Initialize an append iterator for the message, gets freed with the message.
+	    dbus_message_iter_init_append(message, &message_itr);
+
+
+	    // Append parent_window.
+	    if (!dbus_message_iter_append_basic(&message_itr, DBUS_TYPE_STRING, &parent_window))
+	        goto cleanup;
+	    // Append file descriptor (or directory in this case).
+	    if (!dbus_message_iter_append_basic(&message_itr, DBUS_TYPE_UNIX_FD, &fd))
+	        goto cleanup;
+	    // Append options (there aren't any but specifying type "a{sv}" is necessary).
+	    if (!dbus_message_iter_open_container(&message_itr, 'a', "{sv}", &sub_iterator))
+	        goto cleanup;
+	    if (!dbus_message_iter_close_container(&message_itr, &sub_iterator))
+	        goto cleanup;
+
+	    // Send message and get response.
+	    response = dbus_connection_send_with_reply_and_block(connection, message, DBUS_TIMEOUT_USE_DEFAULT, &error);
+	    if (!response || dbus_error_is_set(&error))
+	        goto cleanup;
+	
+	    exit_status = true;
+	cleanup:
+	    if (dbus_error_is_set(&error))
+	    {
+	        fprintf (stderr, "an error occurred: %s\n", error.message);
+	        dbus_error_free(&error);
+	    }
+	    if (message)
+	        dbus_message_unref(message);
+	    if (response)
+	        dbus_message_unref(response);
+	    return exit_status;
+	}
+#endif
+
 	void OpenURL(QWidget* parent, const QUrl& qurl)
 	{
+#ifdef FLATPAK_BUILD
+		if (qurl.isLocalFile())
+		{
+			QString directory_qstring = qurl.toLocalFile();
+			// Convert to std::string then to char*
+			char* directory = directory_qstring.toUtf8().data();
+			int fd = open(directory, O_DIRECTORY | O_RDONLY);
+			if (fd < 0)
+			{
+        		printf("error: %s\n", strerror(errno));
+				printf("%s\n", directory);
+				return;
+    		}
+    		if (!OpenFolder(fd))
+    		{
+    		    printf("Error in OpenFolder()\n");
+    		    return;
+    		}
+    		close(fd);
+    		return;
+		}
+#endif
 		if (!QDesktopServices::openUrl(qurl))
 		{
 			QMessageBox::critical(parent, QObject::tr("Failed to open URL"),

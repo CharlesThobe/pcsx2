@@ -242,3 +242,11 @@ if(WIN32)
 endif()
 
 setup_main_executable(pcsx2-qt)
+
+if(DBUS_API)
+	target_compile_definitions(pcsx2-qt PRIVATE DBUS_API)
+	find_package(PkgConfig REQUIRED)
+	pkg_check_modules(DBUS REQUIRED dbus-1)
+	target_include_directories(pcsx2-qt PRIVATE ${DBUS_INCLUDE_DIRS})
+	target_link_libraries(pcsx2-qt PRIVATE ${DBUS_LINK_LIBRARIES})
+endif()
